@@ -1,0 +1,135 @@
+{
+  "incident_id": "inc-002",
+  "source_alert": {
+    "alert_id": "sumo-abc",
+    "incident_id": "inc-002",
+    "alert_type": "Beaconing",
+    "source": "sumologic",
+    "created_at": "2025-08-21T08:11:54Z",
+    "asset": {
+      "device_id": "dev-4421",
+      "hostname": "ENG-DESKTOP-07",
+      "ip": "10.9.5.23"
+    },
+    "indicators": {
+      "ipv4": [
+        "5.6.7.8"
+      ],
+      "domains": [],
+      "urls": [
+        "http://cnc.evil.example/ping"
+      ],
+      "sha256": []
+    },
+    "enriched_indicators": {
+      "ipv4": [
+        {
+          "indicator": "5.6.7.8",
+          "indicator_type": "ipv4",
+          "provider": "anomali",
+          "confidence": 0,
+          "risk_score": 0,
+          "reputation": "unknown",
+          "classification": null,
+          "threat_name": null,
+          "categories": null,
+          "sightings": 0,
+          "raw_data": {}
+        }
+      ],
+      "domains": [
+        {
+          "indicator": "cnc.evil.example",
+          "indicator_type": "domains",
+          "provider": "defender_ti",
+          "confidence": null,
+          "risk_score": 0,
+          "reputation": "unknown",
+          "classification": null,
+          "threat_name": null,
+          "categories": [],
+          "sightings": null,
+          "raw_data": {}
+        }
+      ],
+      "urls": [],
+      "sha256": []
+    },
+    "mitre_mapping": {
+      "alert_type": "Beaconing",
+      "techniques": [
+        "T1071"
+      ],
+      "confidence": 50,
+      "rationale": ""
+    },
+    "allowlist_check": {
+      "total_indicators": 2,
+      "allowlisted_indicators": 0,
+      "suspicious_indicators": 2,
+      "results": [
+        {
+          "indicator": "5.6.7.8",
+          "indicator_type": "ipv4",
+          "is_allowlisted": false,
+          "allowlist_source": "allowlist_config",
+          "reason": "IP 5.6.7.8 is not allowlisted"
+        },
+        {
+          "indicator": "http://cnc.evil.example/ping",
+          "indicator_type": "urls",
+          "is_allowlisted": false,
+          "allowlist_source": "allowlist_config",
+          "reason": "Domain cnc.evil.example is not allowlisted"
+        }
+      ]
+    },
+    "risk_score": 65,
+    "investigation_required": true,
+    "recommendations": [
+      "Monitor network traffic for suspicious communications",
+      "Investigate asset: ENG-DESKTOP-07"
+    ],
+    "processing_time": 0.0006856918334960938,
+    "tags": []
+  },
+  "asset": {
+    "device_id": "dev-4421",
+    "hostname": "ENG-DESKTOP-07",
+    "ip": "10.9.5.23"
+  },
+  "indicators": [
+    {
+      "type": "ipv4",
+      "value": "5.6.7.8",
+      "allowlisted": false,
+      "hostname": "ENG-DESKTOP-07",
+      "ip": "10.9.5.23",
+      "risk": {
+        "reputation": "unknown",
+        "score": 0,
+        "confidence": 0,
+        "sightings": 0
+      }
+    },
+    {
+      "type": "url",
+      "value": "http://cnc.evil.example/ping",
+      "allowlisted": false,
+      "hostname": "ENG-DESKTOP-07",
+      "ip": "10.9.5.23",
+      "risk": {}
+    }
+  ],
+  "triage": {
+    "severity": 65,
+    "tags": [],
+    "suppressed": false
+  },
+  "mitre": {
+    "techniques": [
+      "T1071"
+    ]
+  },
+  "actions": []
+}

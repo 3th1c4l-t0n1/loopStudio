@@ -1,0 +1,314 @@
+{
+  "incident_id": "inc-001",
+  "source_alert": {
+    "alert_id": "sen-001",
+    "incident_id": "inc-001",
+    "alert_type": "CredentialAccess",
+    "source": "sentinel",
+    "created_at": "2025-08-20T14:03:10Z",
+    "asset": {
+      "device_id": "dev-9001",
+      "hostname": "HR-LAPTOP-22",
+      "ip": "10.2.3.44"
+    },
+    "indicators": {
+      "ipv4": [
+        "1.2.3.4"
+      ],
+      "domains": [
+        "bad.example.net"
+      ],
+      "urls": [
+        "http://bad.example.net/login"
+      ],
+      "sha256": [
+        "7b1f4c2d16e0a0b43cbae2f9a9c2dd7e2bb3a0aaad6c0ad66b341f8b7deadbe0"
+      ]
+    },
+    "enriched_indicators": {
+      "ipv4": [
+        {
+          "indicator": "1.2.3.4",
+          "indicator_type": "ipv4",
+          "provider": "anomali",
+          "confidence": 80,
+          "risk_score": "suspicious",
+          "reputation": "suspicious",
+          "classification": null,
+          "threat_name": null,
+          "categories": null,
+          "sightings": 12,
+          "raw_data": {
+            "ip": "1.2.3.4",
+            "confidence": 80,
+            "risk": "suspicious",
+            "sightings": 12
+          }
+        }
+      ],
+      "domains": [
+        {
+          "indicator": "bad.example.net",
+          "indicator_type": "domains",
+          "provider": "defender_ti",
+          "confidence": null,
+          "risk_score": 92,
+          "reputation": "malicious",
+          "classification": null,
+          "threat_name": null,
+          "categories": [
+            "phishing",
+            "credential-theft"
+          ],
+          "sightings": null,
+          "raw_data": {
+            "domain": "bad.example.net",
+            "reputation": "malicious",
+            "score": 92,
+            "categories": [
+              "phishing",
+              "credential-theft"
+            ]
+          }
+        },
+        {
+          "indicator": "bad.example.net",
+          "indicator_type": "domains",
+          "provider": "defender_ti",
+          "confidence": null,
+          "risk_score": 92,
+          "reputation": "malicious",
+          "classification": null,
+          "threat_name": null,
+          "categories": [
+            "phishing",
+            "credential-theft"
+          ],
+          "sightings": null,
+          "raw_data": {
+            "domain": "bad.example.net",
+            "reputation": "malicious",
+            "score": 92,
+            "categories": [
+              "phishing",
+              "credential-theft"
+            ]
+          }
+        }
+      ],
+      "urls": [],
+      "sha256": [
+        {
+          "indicator": "7b1f4c2d16e0a0b43cbae2f9a9c2dd7e2bb3a0aaad6c0ad66b341f8b7deadbe0",
+          "indicator_type": "sha256",
+          "provider": "reversinglabs",
+          "confidence": null,
+          "risk_score": 95,
+          "reputation": null,
+          "classification": "malicious",
+          "threat_name": "Infostealer.X",
+          "categories": null,
+          "sightings": null,
+          "raw_data": {
+            "sha256": "7b1f4c2d16e0a0b43cbae2f9a9c2dd7e2bb3a0aaad6c0ad66b341f8b7deadbe0",
+            "classification": "malicious",
+            "threat_name": "Infostealer.X",
+            "score": 95
+          }
+        }
+      ]
+    },
+    "mitre_mapping": {
+      "alert_type": "CredentialAccess",
+      "techniques": [
+        "T1566.002",
+        "T1059",
+        "T1566",
+        "T1204.002",
+        "T1566.001",
+        "T1555",
+        "T1056",
+        "T1071.001"
+      ],
+      "confidence": 80,
+      "rationale": ""
+    },
+    "allowlist_check": {
+      "total_indicators": 4,
+      "allowlisted_indicators": 0,
+      "suspicious_indicators": 4,
+      "results": [
+        {
+          "indicator": "1.2.3.4",
+          "indicator_type": "ipv4",
+          "is_allowlisted": false,
+          "allowlist_source": "allowlist_config",
+          "reason": "IP 1.2.3.4 is not allowlisted"
+        },
+        {
+          "indicator": "bad.example.net",
+          "indicator_type": "domains",
+          "is_allowlisted": false,
+          "allowlist_source": "allowlist_config",
+          "reason": "Domain bad.example.net is not allowlisted"
+        },
+        {
+          "indicator": "http://bad.example.net/login",
+          "indicator_type": "urls",
+          "is_allowlisted": false,
+          "allowlist_source": "allowlist_config",
+          "reason": "Domain bad.example.net is not allowlisted"
+        },
+        {
+          "indicator": "7b1f4c2d16e0a0b43cbae2f9a9c2dd7e2bb3a0aaad6c0ad66b341f8b7deadbe0",
+          "indicator_type": "sha256",
+          "is_allowlisted": false,
+          "allowlist_source": null,
+          "reason": "SHA256 hashes are not typically allowlisted"
+        }
+      ]
+    },
+    "risk_score": 100,
+    "investigation_required": true,
+    "recommendations": [
+      "Quarantine and analyze file: 7b1f4c2d16e0a0b43cbae2f9a9c2dd7e2bb3a0aaad6c0ad66b341f8b7deadbe0",
+      "Block malicious indicator: bad.example.net",
+      "Investigate asset: HR-LAPTOP-22",
+      "Implement email security controls and user training",
+      "Review credential storage and access controls",
+      "Device dev-9001 isolated due to high severity"
+    ],
+    "processing_time": 0.0009541511535644531,
+    "tags": []
+  },
+  "asset": {
+    "device_id": "dev-9001",
+    "hostname": "HR-LAPTOP-22",
+    "ip": "10.2.3.44"
+  },
+  "indicators": [
+    {
+      "type": "ipv4",
+      "value": "1.2.3.4",
+      "allowlisted": false,
+      "hostname": "HR-LAPTOP-22",
+      "ip": "10.2.3.44",
+      "risk": {
+        "reputation": "suspicious",
+        "score": "suspicious",
+        "confidence": 80,
+        "sightings": 12
+      }
+    },
+    {
+      "type": "domain",
+      "value": "bad.example.net",
+      "allowlisted": false,
+      "hostname": "HR-LAPTOP-22",
+      "ip": "10.2.3.44",
+      "risk": {
+        "reputation": "malicious",
+        "score": 92,
+        "categories": [
+          "phishing",
+          "credential-theft"
+        ]
+      }
+    },
+    {
+      "type": "url",
+      "value": "http://bad.example.net/login",
+      "allowlisted": false,
+      "hostname": "HR-LAPTOP-22",
+      "ip": "10.2.3.44",
+      "risk": {}
+    },
+    {
+      "type": "sha256",
+      "value": "7b1f4c2d16e0a0b43cbae2f9a9c2dd7e2bb3a0aaad6c0ad66b341f8b7deadbe0",
+      "allowlisted": false,
+      "hostname": "HR-LAPTOP-22",
+      "ip": "10.2.3.44",
+      "risk": {
+        "classification": "malicious",
+        "score": 95,
+        "threat_name": "Infostealer.X"
+      }
+    }
+  ],
+  "triage": {
+    "severity": 100,
+    "tags": [],
+    "suppressed": false
+  },
+  "mitre": {
+    "techniques": [
+      "T1566.002",
+      "T1059",
+      "T1566",
+      "T1204.002",
+      "T1566.001",
+      "T1555",
+      "T1056",
+      "T1071.001"
+    ]
+  },
+  "actions": [
+    {
+      "type": "isolate",
+      "target": "device:dev-9001",
+      "timeline": [
+        {
+          "stage": "ingest",
+          "bucket": "Critical",
+          "tags": [
+            "credentialaccess"
+          ],
+          "result": "processed",
+          "ts": "2025-09-26T16:53:46.272094",
+          "details": "Alert sen-001 ingested from sentinel"
+        },
+        {
+          "stage": "enrich",
+          "bucket": "Critical",
+          "tags": [
+            "ti-enrichment"
+          ],
+          "result": "enriched",
+          "ts": "2025-09-26T16:53:46.272094",
+          "details": "Threat intelligence enrichment completed"
+        },
+        {
+          "stage": "triage",
+          "bucket": "Critical",
+          "tags": [
+            "risk-assessment"
+          ],
+          "result": "triaged",
+          "ts": "2025-09-26T16:53:46.272094",
+          "details": "Risk score: 100, Investigation required: True"
+        },
+        {
+          "stage": "respond",
+          "bucket": "Critical",
+          "tags": [
+            "investigation"
+          ],
+          "result": "escalated",
+          "ts": "2025-09-26T16:53:46.272094",
+          "details": "Alert escalated for investigation"
+        },
+        {
+          "stage": "respond",
+          "bucket": "Critical",
+          "tags": [
+            "isolation"
+          ],
+          "result": "isolated",
+          "ts": "2025-09-26T16:53:46.272092",
+          "details": "Device dev-9001 isolated due to high severity"
+        }
+      ]
+    }
+  ]
+}
