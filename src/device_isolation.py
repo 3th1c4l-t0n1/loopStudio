@@ -57,8 +57,7 @@ class DeviceIsolation:
             if os.path.exists(self.isolation_log_file):
                 with open(self.isolation_log_file, 'r', encoding='utf-8') as f:
                     lines = [line.strip() for line in f.readlines() if line.strip()]
-                    # Return only the last 10 entries to avoid clutter
-                    return lines[-10:] if len(lines) > 10 else lines
+                    return lines
             return []
         except Exception as e:
             logger.error(f"Error reading isolation log: {e}")
