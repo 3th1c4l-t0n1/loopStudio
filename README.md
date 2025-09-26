@@ -4,7 +4,7 @@ A comprehensive SOAR (Security Orchestration, Automation and Response) system th
 
 ## Features
 
-- **Multi-Platform Alert Processing**: Supports Sentinel, SumoLogic, CrowdStrike and other alert formats
+- **Multi-Platform Alert Processing**: Supports Sentinel, SumoLogic and other alert formats
 - **Threat Intelligence Enrichment**: Integrates with Defender TI, ReversingLabs, and Anomali
 - **Automated Risk Scoring**: Base scores + TI boosts + allowlist suppression
 - **MITRE ATT&CK Mapping**: Automatic technique mapping based on alert types
