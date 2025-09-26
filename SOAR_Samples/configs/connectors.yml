@@ -1,0 +1,30 @@
+providers:
+  defender_ti:
+    base_url: "file://mocks/ti"
+  reversinglabs:
+    base_url: "file://mocks/ti"
+  anomali:
+    base_url: "file://mocks/ti"
+edr:
+  base_url: "http://localhost:8081"
+
+# Base risk scores for alert types
+base_risk_scores:
+  Malware: 70
+  Phishing: 60
+  Beaconing: 65
+  CredentialAccess: 75
+  C2: 80
+  Unknown: 40
+
+# Threat intelligence boost configuration
+ti_boosts:
+  malicious_boost: 20
+  suspicious_boost: 10
+  extra_flagged_boost: 5
+  max_extra_boost: 20
+
+# Allowlist suppression configuration
+allowlist_suppression:
+  indicator_penalty: 25
+  all_allowlisted_severity: 0

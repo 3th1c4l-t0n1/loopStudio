@@ -1,0 +1,66 @@
+# Alert type to technique mappings
+alert_type_mappings:
+  CredentialAccess: ["T1056", "T1555"]
+  Beaconing: ["T1071"]
+  Malware: ["T1204", "T1059"]
+  Phishing: ["T1566"]
+  C2: ["T1105"]
+  Unknown: ["T1040"]
+
+# Default techniques for unmapped alert types
+default_techniques: ["T1040"]
+
+# Indicator-based technique mappings
+indicator_mappings:
+  ipv4:
+    malicious:
+      - "T1071.001"  # Web Protocols
+      - "T1105"      # Ingress Tool Transfer
+    high_risk:
+      - "T1071"      # Application Layer Protocol
+  
+  domains:
+    malicious:
+      - "T1071.001"  # Web Protocols
+      - "T1566"      # Phishing
+    phishing:
+      - "T1566.001"  # Spearphishing Attachment
+      - "T1566.002"  # Spearphishing Link
+  
+  sha256:
+    malicious:
+      - "T1204.002"  # User Execution: Malicious File
+      - "T1059"      # Command and Scripting Interpreter
+    infostealer:
+      - "T1555"      # Credentials from Password Stores
+      - "T1056"      # Input Capture
+
+# Technique descriptions for reporting
+technique_descriptions:
+  T1056: "Input Capture"
+  T1555: "Credentials from Password Stores"
+  T1071: "Application Layer Protocol"
+  T1071.001: "Web Protocols"
+  T1566: "Phishing"
+  T1566.001: "Spearphishing Attachment"
+  T1566.002: "Spearphishing Link"
+  T1204: "User Execution"
+  T1204.002: "Malicious File"
+  T1059: "Command and Scripting Interpreter"
+  T1105: "Ingress Tool Transfer"
+  T1040: "Network Sniffing"
+
+# Tactic categories for techniques
+tactic_categories:
+  T1056: "Credential Access"
+  T1555: "Credential Access"
+  T1071: "Command and Control"
+  T1071.001: "Command and Control"
+  T1566: "Initial Access"
+  T1566.001: "Initial Access"
+  T1566.002: "Initial Access"
+  T1204: "Execution"
+  T1204.002: "Execution"
+  T1059: "Execution"
+  T1105: "Command and Control"
+  T1040: "Collection"
