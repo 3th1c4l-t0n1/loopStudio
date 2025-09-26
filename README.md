@@ -15,7 +15,7 @@ A comprehensive SOAR (Security Orchestration, Automation and Response) system th
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/3th1c4l-t0n1/loopStudio
 cd loopStudio
 
 # Install dependencies
